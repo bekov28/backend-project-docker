@@ -1,0 +1,22 @@
+{
+  "name": "chapter_4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env ./src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A dockerized full stack todo application that uses a NodeJS backend, a PostgreSQL database and JWT Authentification.",
+  "dependencies": {
+    "@prisma/client": "^7.2.0",
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.16.3",
+    "prisma": "^7.2.0"
+  }
+}

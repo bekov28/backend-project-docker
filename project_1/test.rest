@@ -1,0 +1,20 @@
+### TEST GET / WEBSITE
+GET http://localhost:8383
+
+
+### TEST GET / dashboard website
+GET http://localhost:8383/dashboard
+
+### TEST GET / Data Endpoint
+GET http://localhost:8383/api/data
+
+### TEST POST
+POST http://localhost:8383/api/data
+Content-Type: application/json
+
+{
+    "name": "gilgamesh"
+}
+
+### DELETE endpoint
+DELETE  http://localhost:8383/api/data
