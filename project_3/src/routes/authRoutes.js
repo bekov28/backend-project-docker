@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import db from "../db.js";
+import prisma from "../prismaClient.js";
 
 //bcrypt is used for encrypting passwords
 //jwt is a json web token which is a alhpha numberic secure password to authenticate users without needing them to sign up again
