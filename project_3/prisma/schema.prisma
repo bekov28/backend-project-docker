@@ -6,16 +6,18 @@
 
 generator client {
   provider = "prisma-client"
+  output   = "../src/generated"
 }
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
   id        Int      @id @default(autoincrement())
   username  String   @unique
-  password  String   ls
+  password  String   
   todos     Todo[]
 }
 
