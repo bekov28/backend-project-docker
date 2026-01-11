@@ -1,10 +1,37 @@
-version: "3"
-services:
+# ========================================================
+# DOCKER-COMPOSE CONFIGURATION FOR TODO APP
+# Version: Docker Compose format version 3.8
+# ========================================================
+
+services: # Defines all the containers to run
   app:
-    build:
+    build: . # tells Docker where to find the Dockerfile, current directory
     container_name: todo-app
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/todoapp
-      - JWT_SECRET=your_jwt_secret
-      - NODE_ENV=development
-      - PORT=5003
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/todoapp # Connection string for PostgreSQL
+      - JWT_SECRET=your_jwt_secret # Secret key for JSON Web Tokens
+      - NODE_ENV=development # Node.js environment mode
+      - PORT=5003 # Port the app will listen on INSIDE the container
+    ports:
+      - "5003:5003" # Access the app at http://localhost:5003
+
+    depends_on: # Dependencies - ensures 'db' starts before 'app'
+      - db
+    volumes:
+      - .:/app # Mount current directory to /app in container
+      - /app/node_modules # This prevents overwriting container's node_modules with host's
+
+  db:
+    image: postgres:13-alpine # Alpine = smaller Linux distro
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgres # Superuser username
+      POSTGRES_PASSWORD: postgres # Superuser password
+      POSTGRES_DB: todoapp # Default database to create
+    ports:
+      - "5433:5432" # Host:Container port mapping   # Changed: Host port 5433 → Container port 5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # Named volume preserves data across container restarts
+
+volumes: # Named volume for PostgreSQL data persistence
+  postgres-data:

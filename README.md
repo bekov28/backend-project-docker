@@ -8,4 +8,4 @@ This todo backend application consists of three sub-projects.
 
 🙌 In the second todo application, where I tried to do a sign-up and login application with modern backend technoligies, such as bcryptjs, jsonwebtoken and express.js to authentificate users for signup and allowing them to login. Also, by using jsonwebtoken, saved the token to localStorage to persist customer's login and todo information. By using bcryptjs, I refreshened my skills to encrypt users' passwords. Also, for DB, I used SQLite of Node.js, a fast lightweight DB for quick database queries.
 
-🏆 In the third and last project, I used Prisma ORM for PostgreSQL queries and migrated the project to Docker.
+🏆 In the third and last project, I used Prisma ORM for PostgreSQL queries and migrated the project to Docker, by creating Dockerfile and configuring docker-compose.yml.
