@@ -28,7 +28,7 @@ router.post("/register", async (req, res) => {
     const defaultTodo = `Hello! Add your first todo!`;
     await prisma.todo.create({
       data: {
-        task,
+        task: defaultTodo,
         userId: user.id,
       },
     });
