@@ -19,7 +19,7 @@
     <section id="auth">
       <div>
         <h2 className="sign-up-text">Login</h2>
-        <p>Create an account!</p>
+        <p>Login your account!</p>
       </div>
 
       <p id="error" style="display: none"></p>
@@ -72,8 +72,6 @@
     const registerBtn = document.getElementById("registerBtn");
     const authBtn = document.getElementById("authBtn");
     const addTodoBtn = document.getElementById("addTodoBtn");
-    // const deleteBtn = document.getElementById('')
-    // const updateBtn =
 
     // PAGE RENDERING LOGIC
     async function showDashboard() {
@@ -171,6 +169,9 @@
       isRegistration = !isRegistration;
       registerBtn.innerText = isRegistration ? "Sign in" : "Sign up";
       document.querySelector("#auth > div h2").innerText = isRegistration ? "Sign Up" : "Login";
+      document.querySelector("#auth > div p").innerText = isRegistration
+        ? "Create an account!"
+        : "Login your account!";
       document.querySelector(".register-content p").innerText = isRegistration
         ? "Already have an account?"
         : "Don't have an account?";
