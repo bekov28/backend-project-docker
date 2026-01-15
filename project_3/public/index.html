@@ -16,7 +16,9 @@
   </head>
 
   <body>
+    <section class="mainText">Welcome to TODO Application!</section>
     <section id="auth">
+      <p></p>
       <div>
         <h2 className="sign-up-text">Login</h2>
         <p>Login your account!</p>
@@ -48,6 +50,9 @@
       <hr />
     </nav>
     <main style="display: none"></main>
+    <div style="display: none" class="sign-out"><button onclick="logout()" ><h6>Sign Out</h6></button></div>
+   
+  </div>
   </body>
   <script>
     let token = localStorage.getItem("token");
@@ -72,6 +77,7 @@
     const registerBtn = document.getElementById("registerBtn");
     const authBtn = document.getElementById("authBtn");
     const addTodoBtn = document.getElementById("addTodoBtn");
+    const signOut = document.querySelector(".sign-out");
 
     // PAGE RENDERING LOGIC
     async function showDashboard() {
@@ -79,6 +85,7 @@
       header.style.display = "flex";
       main.style.display = "flex";
       authContent.style.display = "none";
+      signOut.style.display = "flex";
 
       await fetchTodos();
     }
@@ -255,6 +262,12 @@
 
     function logout() {
       // wipe states and clear cached token
+      localStorage.removeItem("token");
+      nav.style.display = "none";
+      header.style.display = "none";
+      main.style.display = "none";
+      authContent.style.display = "flex";
+      signOut.style.display = "none";
     }
 
     // CRUD LOGIC
