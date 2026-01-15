@@ -13,7 +13,7 @@ services: # Defines all the containers to run
       - NODE_ENV=development # Node.js environment mode
       - PORT=5003 # Port the app will listen on INSIDE the container
     ports:
-      - "5003:5003" # Access the app at http://localhost:5003,  # Host port is 5004, Container port 5003
+      - "5003:5003" # Access the app at http://localhost:5003,
 
     depends_on: # Dependencies - ensures 'db' starts before 'app'
       - db
@@ -29,7 +29,7 @@ services: # Defines all the containers to run
       POSTGRES_PASSWORD: postgres # Superuser password
       POSTGRES_DB: todoapp # Default database to create
     ports:
-      - "5432:5432" # Host:Container port mapping   # Changed: Host port 5433 → Container port 5432
+      - "5432:5432" # Host:Container port mapping
     volumes:
       - postgres-data:/var/lib/postgresql/data # Named volume preserves data across container restarts
 
