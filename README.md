@@ -1,6 +1,6 @@
 # backend-project-docker
 
-💫 A dockerized full stack todo application that uses a NodeJS backend, a PostgreSQL database and JWT Authentification.
+💫 A dockerized full stack todo application that uses a NodeJS backend, a built-in PostgreSQL database with Docker and JWT Authentification.
 
 This todo backend application consists of three sub-projects.
 
